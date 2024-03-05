@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="Style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,8 +17,8 @@
     </header>
  
     <main class="main">
-        <section>
-            <textarea class="text-area" cols="30" rows="10" placeholder="Ingrese el texto aqui"></textarea>
+        <section class="contenedor-principal">
+            <textarea class="text-area" cols="30" rows="20" placeholder="Ingrese el texto aqui"></textarea>
             <div>
                 <h6 class="informacion">Solo letras minúsculas y sin acentos</h6>
             </div>
@@ -27,9 +28,11 @@
             </div>           
         </section>
 
-        <section>
-           <textarea class="mensaje" cols="20" rows="10"></textarea>
-           <div>
+        <section class="contenedor-secundario">
+            <div>
+           <textarea class="mensaje" cols="20" rows="20"></textarea>
+        </div>
+           <div class="copiar">
             <button class="btn-copiar">Copiar</button>
            </div>
            
@@ -39,6 +42,7 @@
 
 
     </main>
+    <footer> Johnny Sibaja 2024</footer>
 
 
 

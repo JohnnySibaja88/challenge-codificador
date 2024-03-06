@@ -121,8 +121,7 @@ text-align: center;
     font-style: italic;
 
 }
-
-footer{
+.creditos{
     text-align: center;
     background: #0A3871;
     color: white;
@@ -130,3 +129,6 @@ footer{
     padding: 1%; 
 }
 
+@media screen and  (max-width:480px){
+    
+}

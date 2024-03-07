@@ -16,23 +16,71 @@ No deben ser utilizados letras con acentos ni caracteres especiales
 Debe ser posible convertir una palabra para la versión encriptada también devolver una palabra encriptada para su versión original.
 
 */
+let textoLimpio = 'uno dos le saco el arr2oz';
+let textoCorregido = textoLimpio.replace(/[^\sa-z]|\s+$/ig, '');
 
-const textArea = document.querySelector('.text-area');
-const mensaje = document.querySelector('.mensaje')
-
-function btnEncriptar(){
-    const textoEncriptado = encriptar(textArea.value)
-    mensaje.value = textoEncriptado
+if (textoLimpio !== textoCorregido) {
+  alert('Se han detectado números o símbolos en el texto. Han sido eliminados.');
 }
 
+textoLimpio = textoCorregido.toLowerCase().replace(/\s+/g, ' ');
 
-function encriptar(stringEncriptado){
-    let matrizCodigo= [["e", "enter"],["i" , "imes"],["a","ai"], ["o","ober"], ["u", "ufat"]]
-    stringEncriptado=stringEncriptado.toLowerCase()
-    for(let i = 0; i < matrizCodigo.length; i++){
-        if(stringEncriptado.includes(matrizCodigo[i][0])){
-             stringEncriptado = stringEncriptado.replaceAll(matrizCodigo[i][0], matrizCodigo[i][1])
-        }
+const diccionarioEncriptador = {
+    "e": "enter",
+    "i": "imes",
+    "a": "ai",
+    "o": "ober",
+    "u": "ufat",
+};
+
+const diccionarioDesEncriptador = {
+    "ufat" : "u",
+    "ober" : "o",
+    "ai"  :   "a",
+    "imes" : "i",
+    "enter": "e",
+};
+
+
+const resultadoEncriptado = encriptarPalabra(diccionarioEncriptador);
+const resultadoDesencriptado = desencriptarTexto(diccionarioDesEncriptador) 
+
+
+function encriptarPalabra(diccionario) {
+    let palabraEncriptada = '';
+  
+    for (let i = 0; i < textoLimpio.length; i++) {
+      const letra = textoLimpio[i];
+  
+      // Verificar si la letra está en el diccionario
+      if (letra in diccionario) {
+        // Reemplazar la letra por su valor correspondiente
+        palabraEncriptada += diccionario[letra];
+      } else {
+        // Si la letra no está en el diccionario, mantenerla sin cambios
+        palabraEncriptada += letra;
+      }
     }
-    return stringEncriptado 
-}
+  
+    return palabraEncriptada;
+  }
+
+
+function desencriptarTexto(diccionarioDeDesencriptacion){
+    let texto = textoLimpio
+    texto = texto.toLowerCase();
+    // Iteramos sobre cada token en el diccionario de desencriptación
+    // Por ejemplo, en la primera vuelta, tokenEncriptado va a ser igual a "ufat"
+    for(tokenEncriptado in diccionarioDeDesencriptacion){
+        // Reemplazamos el token encriptado por su valor en el diccionario de desencriptación
+        // Es decir, si el texto es "gaitober", entonces reemplazamos "ufat" por "u"
+        texto = texto.replaceAll(tokenEncriptado, diccionarioDeDesencriptacion[tokenEncriptado])
+    }
+    return texto;
+};
+
+
+
+console.log(textoLimpio)
+ console.log(resultadoEncriptado)
+console.log(resultadoDesencriptado)

@@ -18,19 +18,19 @@
  
     <main class="main">
         <section class="contenedor-principal">
-            <textarea id="textoLimpio" class="text-area" cols="30" rows="20" placeholder="Ingrese el texto aqui"></textarea>
+            <textarea id="textoIngresado" class="text-area" cols="30" rows="20" placeholder="Ingrese el texto aqui"></textarea>
             <div>
                 <h6 class="informacion">Solo letras minúsculas y sin acentos</h6>
             </div>
             <div class="botones">
                 <button class="btn-encriptar" onclick="btnEncriptar()">Encriptar</button>
-                <button class="btn-desencriptar">Desencriptar</button>
+                <button class="btn-desencriptar" onclick="btnDesEncriptar()">Desencriptar</button>
             </div>           
         </section>
 
         <section class="contenedor-secundario">
             <div>
-           <p class="mensaje" id="resultado" cols = "20" rows =20></textarea>
+           <p class="mensaje" id="resultado" cols = "20" rows =20></p>
         </div>
            <div class="copiar">
             <button class="btn-copiar"  onclick="copiarAlClipboard()">Copiar</button>
@@ -38,18 +38,11 @@
            
         </section>
   
-
-
-
     </main>
+
     <footer> 
         <p class="creditos"> &copy Enigma JohnnySibaja88 </p>
-
-
     </footer>
-
-
-
 
 
     <script src="app.js"></script>

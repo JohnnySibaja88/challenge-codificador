@@ -16,14 +16,17 @@ No deben ser utilizados letras con acentos ni caracteres especiales
 Debe ser posible convertir una palabra para la versión encriptada también devolver una palabra encriptada para su versión original.
 
 */
-let textoLimpio = 'uno dos le saco el arr2oz';
-let textoCorregido = textoLimpio.replace(/[^\sa-z]|\s+$/ig, '');
 
-if (textoLimpio !== textoCorregido) {
-  alert('Se han detectado números o símbolos en el texto. Han sido eliminados.');
-}
+// let textoLimpio = '';
+// let textoCorregido = textoLimpio.replace(/[^\sa-z]|\s+$/ig, '');
 
-textoLimpio = textoCorregido.toLowerCase().replace(/\s+/g, ' ');
+// if (textoLimpio !== textoCorregido) {
+//   alert('Se han detectado números o símbolos en el texto. Han sido eliminados.');
+// }
+
+// textoLimpio = textoCorregido.toLowerCase().replace(/\s+/g, ' ');
+
+
 
 const diccionarioEncriptador = {
     "e": "enter",
@@ -32,55 +35,76 @@ const diccionarioEncriptador = {
     "o": "ober",
     "u": "ufat",
 };
-
 const diccionarioDesEncriptador = {
-    "ufat" : "u",
-    "ober" : "o",
-    "ai"  :   "a",
-    "imes" : "i",
-    "enter": "e",
+  "ufat" : "u",
+  "ober" : "o",
+  "ai"  :   "a",
+  "imes" : "i",
+  "enter": "e",
 };
 
+const textoIngresado = 'uno dos le saco el arroz'
+const textoEncriptado = encriptarTexto(textoIngresado)
+const textoDesencriptado= desencriptarTexto(textoEncriptado)
 
-const resultadoEncriptado = encriptarPalabra(diccionarioEncriptador);
-const resultadoDesencriptado = desencriptarTexto(diccionarioDesEncriptador) 
 
 
-function encriptarPalabra(diccionario) {
-    let palabraEncriptada = '';
-  
-    for (let i = 0; i < textoLimpio.length; i++) {
-      const letra = textoLimpio[i];
-  
-      // Verificar si la letra está en el diccionario
-      if (letra in diccionario) {
-        // Reemplazar la letra por su valor correspondiente
-        palabraEncriptada += diccionario[letra];
-      } else {
-        // Si la letra no está en el diccionario, mantenerla sin cambios
-        palabraEncriptada += letra;
+function encriptarTexto(texto){
+  // Prepara una variable vacía, que nos va a servir de "contenedor" del resultado final
+  let resultado = "";
+  texto = texto.toLowerCase();
+  // Iteramos sobre cada letra del texto, en este caso, posicionDeLetra nos va a dar los numeros de la letra
+  // Por ejemplo
+  // Gino => 0, 1, 2, 3
+  for( let posicionDeLetra in texto){
+
+      // Extraemos la letra que esté en el texto, en la posición indicada por posicionDeLetra
+      // Para la primera vuelta, posicionDeLetra va a ser igual a cero, por tanto, texto[posicionDeLetra] nos va a dar la letra "G"
+      // Para la segunda vuelta, posicionDeLetra va a ser igual a uno, por tanto, texto[posicionDeLetra] nos va a dar la letra "i"
+      // Y así sucesivamente
+      let letraExtraida = texto[posicionDeLetra];
+
+      // Si la letra extraida existe en el diccionario de encriptación, entonces la reemplazamos por su valor
+      if(diccionarioEncriptador[letraExtraida]){
+          // Acá hacemos el reemplazo de la letra
+          // Por ejemplo, si la letra extraida es 'i', entonces la reemplazamos por 'imes'
+          letraExtraida = diccionarioEncriptador[letraExtraida];
       }
-    }
-  
-    return palabraEncriptada;
+      
+      // Concatenamos la letra extraida a la variable de resultado final
+      resultado += letraExtraida;
   }
 
+  // Retornamos el resultado final
+  return resultado;
+}
 
-function desencriptarTexto(diccionarioDeDesencriptacion){
-    let texto = textoLimpio
+
+
+
+
+
+function desencriptarTexto(texto){
     texto = texto.toLowerCase();
     // Iteramos sobre cada token en el diccionario de desencriptación
     // Por ejemplo, en la primera vuelta, tokenEncriptado va a ser igual a "ufat"
-    for(tokenEncriptado in diccionarioDeDesencriptacion){
+    for(tokenEncriptado in diccionarioDesEncriptador){
         // Reemplazamos el token encriptado por su valor en el diccionario de desencriptación
         // Es decir, si el texto es "gaitober", entonces reemplazamos "ufat" por "u"
-        texto = texto.replaceAll(tokenEncriptado, diccionarioDeDesencriptacion[tokenEncriptado])
+        texto = texto.replaceAll(tokenEncriptado, diccionarioDesEncriptador[tokenEncriptado])
     }
     return texto;
 };
 
 
+// function obtenerTextoIngresado(){
+//   const texto = document.getElementById("textoIngresado").value;
+ 
+  
+// }
 
-console.log(textoLimpio)
- console.log(resultadoEncriptado)
-console.log(resultadoDesencriptado)
+
+
+console.log(textoIngresado)
+console.log(textoEncriptado)
+console.log (textoDesencriptado)

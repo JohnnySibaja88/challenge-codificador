@@ -17,14 +17,6 @@ Debe ser posible convertir una palabra para la versión encriptada también devo
 
 */
 
-// let textoLimpio = '';
-// let textoCorregido = textoLimpio.replace(/[^\sa-z]|\s+$/ig, '');
-
-// if (textoLimpio !== textoCorregido) {
-//   alert('Se han detectado números o símbolos en el texto. Han sido eliminados.');
-// }
-
-// textoLimpio = textoCorregido.toLowerCase().replace(/\s+/g, ' ');
 
 
 

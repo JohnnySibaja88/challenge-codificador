@@ -43,7 +43,7 @@ const diccionarioDesEncriptador = {
   "enter": "e",
 };
 
-const textoIngresado = 'uno dos le saco el arroz'
+const textoIngresado = ''
 const textoEncriptado = encriptarTexto(textoIngresado)
 const textoDesencriptado= desencriptarTexto(textoEncriptado)
 
@@ -97,14 +97,41 @@ function desencriptarTexto(texto){
 };
 
 
-// function obtenerTextoIngresado(){
-//   const texto = document.getElementById("textoIngresado").value;
+function obtenerTextoIngresado(){
+    const texto = document.getElementById("textoIngresado").value;
+    return texto;
+    }
+
+function setResultado(texto){
+    document.getElementById("resultado").innerText = texto;
+}
+
+function btnEncriptar(){
+    let textoIngresado = obtenerTextoIngresado ();
+     let textoCorregido = textoIngresado.replace(/[^\sa-z]|\s+$/ig, '').toLowerCase();
+        if (textoIngresado !== textoCorregido) {
+        alert('Se han detectado mayúsculas, números y/o símbolos en el texto. Han sido eliminados o cambiados.');
+            }
+
+        textoIngresado = textoCorregido.replace(/\s+/g, ' ');
+
  
-  
-// }
+    setResultado(encriptarTexto(textoIngresado))
+}
+
+function btnDesEncriptar(){
+    let textoIngresado= obtenerTextoIngresado()
+    setResultado(desencriptarTexto(textoIngresado))
+    }
+
+function copiarAlClipboard(){
+    let textoPorCopiar = document.getElementById("resultado").innerHTML;
+    if(textoPorCopiar === ""){
+        alert("No hay texto para copiar");
+        return;
+    }
+    navigator.clipboard.writeText(textoPorCopiar);
+    alert("Texto copiado al portapapeles");
+}
 
 
-
-console.log(textoIngresado)
-console.log(textoEncriptado)
-console.log (textoDesencriptado)

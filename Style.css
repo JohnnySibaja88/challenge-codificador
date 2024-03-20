@@ -1,4 +1,4 @@
-*{
+/* *{
  background: #e1e7ff;  
  font-family: 'Inter';
  font-weight: 400;
@@ -133,4 +133,178 @@ footer{
     color: white;
     margin-top: 60PX;
     padding: 1%; 
+} */
+* {
+background: #e1e7ff; 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+}
+
+header {
+  background:#e1e7ff;
+  padding: 1rem;
+  text-align: left;
+}
+
+.logo {
+  width: 10%;
+}
+
+.titulo{
+    text-align: center;
+    font-size:4rem;
+    color: #0A3871;
+    font-weight: bold;
+    padding-bottom: 30px;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  height: calc(100% - 60px); /* Ajustar según la altura de tu header y footer */
+}
+
+.contenedor-principal {
+  flex: 1;
+  order: 2;
+  background: #e1e7ff;
+  padding: 1rem;
+}
+.text-area{
+    background: white;
+    color: #0A3871;
+    font-size: 1.5rem;
+    width: 630px;
+    height: 650px;
+    text-align: left;
+    margin-left:20px;
+    padding: 20px 20px;
+    border: none;
+    border-radius: 15px;
+}
+
+::placeholder{
+    color: #0a3871;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px 20px;
+    font-size: 1.5rem;    
+}
+
+.text-area:focus{
+    outline: none;
+}
+
+.informacion{
+    margin: 2% 20%;
+    color: rgb(252, 10, 10);
+    font-weight: bold;
+    font-style: italic;
+}
+
+.botones{
+    margin-left: 7%;
+}
+.btn-encriptar{
+    background-color: #0A3871;
+    border: 1px solid #0A3871;
+    border-radius: 24px;
+    color: white;
+    cursor: pointer;
+    height: 4rem;
+    width: 14rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.btn-desencriptar{
+    background: #D8DFE8;
+    border: 1px solid #0A3871;
+    border-radius: 24px;
+    color: #0A3871;
+    cursor: pointer;
+    height: 4rem;
+    margin-left: 30px;
+    width: 16rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+
+}
+
+.contenedor-secundario {
+  flex: 1;
+  order: 3;
+ padding: 1rem;
+}
+.mensaje{
+    width: 630px;
+    height: 650px;
+    background: white;
+    background-image: url("Imagenes/Muñeco.png");
+    background-repeat: no-repeat;
+    background-position:center ;
+    border: none;   
+    border-radius: 15px;
+    color: #0A3871;
+    text-align: left;
+    padding: 20px 20px;
+    font-size: 1.5rem;
+    
+}
+
+.btn-copiar{
+    background: #0A3871;
+    border: 1px solid  #0A3871;
+    border-radius: 24px;    
+    color: white;
+    cursor: pointer;
+    height: 4rem;
+    width: 16rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 35px ;
+}
+
+footer {
+  background: #0A3871;
+  padding: 1rem;
+  order: 4;
+  width: 100%;
+  align-content: center;
+}
+
+.creditos{
+    text-align: center;
+    background: #0A3871;
+    color: white;
+    margin 60PX ;
+    padding: 1%; 
+}
+
+.logo-rrss{
+background: #0A3871;    
+}
+
+
+@media (min-width: 768px) {
+  .contenedor-principal {
+    order: 1;
+    width: 70%;
+  }
+
+  .contenedor-secundario {
+    order: 2;
+    width: 30%;
+  }
+
+  footer {
+    order: 3;
+  }
 }

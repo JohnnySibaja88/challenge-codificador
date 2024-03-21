@@ -102,7 +102,7 @@ function btnEncriptar(){
     let textoIngresado = obtenerTextoIngresado ();
      let textoCorregido = textoIngresado.replace(/[^\sa-z]|\s+$/ig, '').toLowerCase();
         if (textoIngresado !== textoCorregido) {
-        alert('Se han detectado mayúsculas, números y/o símbolos en el texto. Han sido eliminados o cambiados.');
+        alert('Se han detectado mayúsculas, números y/o símbolos en el texto. Han sido eliminados o cambiados para su codificación.');
             }
 
         textoIngresado = textoCorregido.replace(/\s+/g, ' ');
@@ -113,6 +113,11 @@ function btnEncriptar(){
 
 function btnDesEncriptar(){
     let textoIngresado= obtenerTextoIngresado()
+    let textoCorregido = textoIngresado.replace(/[^\sa-z]|\s+$/ig, '').toLowerCase();
+        if (textoIngresado !== textoCorregido) {
+            alert('Se han detectado mayúsculas, números y/o símbolos en el texto. Han sido eliminados o cambiados para su decodificación.');
+            }
+        textoIngresado = textoCorregido.replace(/\s+/g, ' ');
     setResultado(desencriptarTexto(textoIngresado))
     }
 

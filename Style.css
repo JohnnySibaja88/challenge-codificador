@@ -201,7 +201,7 @@ main {
     font-size: 1.5rem;
     font-weight: bold;
     width: 100%;
-    height: 650px;
+    height: 800px;
     text-align: left;
     margin-left:20px;
     padding: 20px 20px;
@@ -261,20 +261,30 @@ main {
   flex: 1;
   order: 3;
  padding: 1rem;
+ justify-items: center;
+ align-items: center;
 }
 .mensaje{
-    width: 100%;
-    height: 650px;
+    width:60%;
+    height: 800px;
     background-color: rgba(255,255,255,0.85);
     border: none;   
     border-radius: 15px;
     color: #0A3871;
-    text-align: left;
+    text-align: center;
     font-style: italic;
-    padding: 20px 20px;
+    padding: 200px 20px;
     font-size: 2rem;
+    margin-left: 350px;
+ 
     
 }
+
+.muñeco{
+    align-items: center;
+    justify-items: center;
+}
+
 
 .btn-copiar{
     background: #0A3871;
@@ -286,7 +296,9 @@ main {
     width: 18rem;
     font-size: 2rem;
     font-weight: bold;
-    margin:97px  35px ;
+    margin:21px  406px ;
+    align-items: center;
+    justify-items: end;
 }
 
 footer {
